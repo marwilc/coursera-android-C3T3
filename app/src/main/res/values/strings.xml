@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="nameAvatar">Name</string>
+    <string name="likes">0</string>
+</resources>

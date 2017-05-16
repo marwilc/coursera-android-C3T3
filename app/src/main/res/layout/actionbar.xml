@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:elevation="@dimen/elevation_actionbar"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    android:padding="@dimen/marginleft"
+    >
+
+
+    <ImageButton
+        android:id="@+id/aivStar"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/star_48"
+        android:layout_gravity = "right"
+        android:onClick="toSecondActivity"
+        />
+
+    <TextView
+        android:id="@+id/tvNameApp"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        android:textSize="@dimen/card_viewBotton"
+        android:textColor="@color/cardview_light_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</android.support.v7.widget.Toolbar>
