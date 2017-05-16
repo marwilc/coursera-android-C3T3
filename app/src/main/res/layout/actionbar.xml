@@ -16,7 +16,7 @@
         android:id="@+id/aivStar"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:background="@drawable/star_48"
+        android:background="@drawable/christmas_star_50"
         android:layout_gravity = "right"
         android:onClick="toSecondActivity"
         />

@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/generic_avatar"
-            android:background="@color/colorAccent"
             />
 
 
@@ -36,7 +35,7 @@
                 android:layout_width="@dimen/img_button_dimen"
                 android:layout_height="@dimen/img_button_dimen"
                 android:gravity="left"
-                android:background="@drawable/thumb_up_48"
+                android:background="@drawable/dog_bone_50"
                 android:layout_marginRight="@dimen/card_viewBotton"
                 />
 
@@ -74,7 +73,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/ic_thumb_up_black_48dp"
+                android:background="@drawable/dog_bone_48"
                 />
             </RelativeLayout>
     </LinearLayout>

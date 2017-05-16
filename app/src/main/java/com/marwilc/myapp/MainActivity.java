@@ -39,15 +39,12 @@ public class MainActivity extends AppCompatActivity {
     public void initLangList(){
 
         languages = new ArrayList<Language>();
-        languages.add(new Language("JavaScript", 0, R.drawable.javascritp));
-        languages.add(new Language("Python", 0, R.drawable.python));
-        languages.add(new Language("Java", 0, R.drawable.java));
-        languages.add(new Language("C++", 0, R.drawable.c__));
-        languages.add(new Language("C", 0, R.drawable.c));
-        languages.add(new Language("PHP", 0, R.drawable.php));
-        languages.add(new Language("R", 0, R.drawable.r));
-        languages.add(new Language("Pascal", 0, R.drawable.pascal));
-        languages.add(new Language("Visual Basic", 0, R.drawable.vb));
+        languages.add(new Language("Steam", 0, R.drawable.dog1));
+        languages.add(new Language("Pitus", 0, R.drawable.panda2));
+        languages.add(new Language("Fido", 0, R.drawable.pig3));
+        languages.add(new Language("Try", 0, R.drawable.pinguin4));
+        languages.add(new Language("Reapper", 0, R.drawable.cat5));
+        languages.add(new Language("Tin", 0, R.drawable.rabbit6));
     }
 
     public void initAdapter(){
