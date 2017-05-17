@@ -1,4 +1,4 @@
-package com.marwilc.myapp;
+package com.marwilc.myapp.modelData;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,32 +7,32 @@ import android.os.Parcelable;
  * Created by marwilc on 15/05/17.
  */
 
-public class Language implements Parcelable{
+public class Pet implements Parcelable{
     private String name;
     private int likes;
     private int picture;
 
-    public Language(String name, int likes, int picture) {
+    public Pet(String name, int likes, int picture) {
         this.name = name;
         this.likes = likes;
         this.picture = picture;
     }
 
-    protected Language(Parcel in) {
+    protected Pet(Parcel in) {
         name = in.readString();
         likes = in.readInt();
         picture = in.readInt();
     }
 
-    public static final Parcelable.Creator<Language> CREATOR = new Parcelable.Creator<Language>() {
+    public static final Parcelable.Creator<Pet> CREATOR = new Parcelable.Creator<Pet>() {
         @Override
-        public Language createFromParcel(Parcel in) {
-            return new Language(in);
+        public Pet createFromParcel(Parcel in) {
+            return new Pet(in);
         }
 
         @Override
-        public Language[] newArray(int size) {
-            return new Language[size];
+        public Pet[] newArray(int size) {
+            return new Pet[size];
         }
     };
 

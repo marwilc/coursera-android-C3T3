@@ -1,4 +1,4 @@
-package com.marwilc.myapp;
+package com.marwilc.myapp.activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,11 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.marwilc.myapp.R;
+import com.marwilc.myapp.adapters.PetAdapter;
+import com.marwilc.myapp.modelData.Pet;
+
 import java.util.ArrayList;
 
-public class SecondActivity extends AppCompatActivity {
+public class FavoritesActivity extends AppCompatActivity {
 
-    private ArrayList<Language> fiveLang;
+    private ArrayList<Pet> fivePets;
     private RecyclerView languageList;
 
     @Override
@@ -19,11 +23,11 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        fiveLang = new ArrayList<Language>();
+        fivePets = new ArrayList<Pet>();
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null)
-            fiveLang = bundle.getParcelableArrayList("fiveLang");
+            fivePets = bundle.getParcelableArrayList("fivePets");
 
         /*Bundle bundle = this.getIntent().getExtras();
         if(bundle!= null)
@@ -49,7 +53,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     public void initAdapter(){
-        LangAdapter adapter = new LangAdapter(fiveLang,this);
+        PetAdapter adapter = new PetAdapter(fivePets,this);
         languageList.setAdapter(adapter);
     }
 }

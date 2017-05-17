@@ -6,20 +6,9 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:elevation="@dimen/elevation_actionbar"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:padding="@dimen/marginleft"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     >
-
-
-    <ImageButton
-        android:id="@+id/aivStar"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:background="@drawable/christmas_star_50"
-        android:layout_gravity = "right"
-        android:onClick="toSecondActivity"
-        />
 
     <TextView
         android:id="@+id/tvNameApp"

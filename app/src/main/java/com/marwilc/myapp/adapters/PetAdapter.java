@@ -1,4 +1,4 @@
-package com.marwilc.myapp;
+package com.marwilc.myapp.adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -10,18 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.marwilc.myapp.modelData.Pet;
+import com.marwilc.myapp.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by marwilc on 15/05/17.
  */
 
-public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LangViewHolder>{
-    ArrayList<Language> languages;
+public class PetAdapter extends RecyclerView.Adapter<PetAdapter.LangViewHolder>{
+    ArrayList<Pet> pets;
     Activity activity;
 
-    public LangAdapter(ArrayList<Language> languages, Activity activity){
-        this.languages  = languages;
+    public PetAdapter(ArrayList<Pet> pets, Activity activity){
+        this.pets = pets;
         this.activity   = activity;
     }
 
@@ -32,24 +35,24 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LangViewHolder
     }
 
     @Override
-    public void onBindViewHolder(LangAdapter.LangViewHolder holder, int position) {
-        final Language language = languages.get(position);
-        holder.imgPicture.setImageResource(language.getPicture());
-        holder.tvNameCv.setText(language.getName());
-        holder.tvLikesCv.setText(Integer.toString(language.getLikes()));
+    public void onBindViewHolder(PetAdapter.LangViewHolder holder, int position) {
+        final Pet pet = pets.get(position);
+        holder.imgPicture.setImageResource(pet.getPicture());
+        holder.tvNameCv.setText(pet.getName());
+        holder.tvLikesCv.setText(Integer.toString(pet.getLikes()));
 
         holder.imgPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, language.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, pet.getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                language.setLikes(language.getLikes()+1);
-                Toast.makeText(activity, "like:" + language.getLikes(),Toast.LENGTH_SHORT).show();
+                pet.setLikes(pet.getLikes()+1);
+                Toast.makeText(activity, "like:" + pet.getLikes(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,7 +60,7 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LangViewHolder
 
     @Override
     public int getItemCount() {
-        return languages.size();
+        return pets.size();
     }
 
     public static class LangViewHolder extends RecyclerView.ViewHolder{
