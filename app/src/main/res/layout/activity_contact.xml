@@ -24,11 +24,19 @@
         <TextView
             android:id="@+id/tvMailTo"
             android:gravity="center"
-            android:text="@string/mailToDeveloper"
+            android:text="@string/Developer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/card_viewBotton"
-            android:padding="@dimen/card_viewBotton"
+            />
+
+        <TextView
+            android:id="@+id/tvDeveloper"
+            android:gravity="center"
+            android:text="@string/mailDeveloper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_viewBotton"
             />
 
         <android.support.design.widget.TextInputEditText
@@ -48,7 +56,16 @@
             />
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etEditTextMessageContact"
+            android:id="@+id/etEditTextPassContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintPass"
+            android:textColorHighlight="@color/colorAccent"
+            android:inputType="textPassword"
+            />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/etEditTextBodyContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintMessage"

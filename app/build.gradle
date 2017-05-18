@@ -24,13 +24,6 @@ android {
     }
 }
 
-repositories {
-    jcenter()
-    maven {
-        url "https://maven.java.net/content/groups/public/"
-    }
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -44,5 +37,4 @@ dependencies {
     compile 'com.sun.mail:android-mail:1.5.5'
     compile 'com.sun.mail:android-activation:1.5.5'
     testCompile 'junit:junit:4.12'
-    compile files('libs/activation.jar')
 }

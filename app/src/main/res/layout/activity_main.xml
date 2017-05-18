@@ -33,7 +33,7 @@
                 android:layout_margin="@dimen/card_viewBotton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_photo_camera_white_48dp"
+                android:src="@drawable/ic_camera"
                 android:elevation="@dimen/elevation_floating_actionButton"
                 />
 

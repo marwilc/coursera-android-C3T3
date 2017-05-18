@@ -1,6 +1,8 @@
 package com.marwilc.myapp.activitys;
 
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +14,13 @@ import android.view.MenuItem;
 
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.adapters.PetAdapter;
+import com.marwilc.myapp.connections.Mail;
 import com.marwilc.myapp.modelData.Pet;
 
 import java.util.ArrayList;
+
+import javax.mail.AuthenticationFailedException;
+import javax.mail.MessagingException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -128,5 +134,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
+
+
