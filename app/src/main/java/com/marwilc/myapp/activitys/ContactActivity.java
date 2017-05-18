@@ -1,13 +1,15 @@
 package com.marwilc.myapp.activitys;
 
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.marwilc.myapp.R;
+import com.marwilc.myapp.connections.GMailSender;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -36,7 +38,18 @@ public class ContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // send email
+                try {
 
+                    GMailSender sender = new GMailSender(email.getText().toString(), "243608Mar");
+                    sender.sendMail("Coments about app",
+                            message.getText().toString(),
+                            email.getText().toString(),
+                            "marwilcampos@gmail.com");
+
+                    Snackbar.make(v,getResources().getString(R.string.mailToDeveloper), Snackbar.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Log.e("SendMail", e.getMessage(), e);
+                }
             }
         });
 
