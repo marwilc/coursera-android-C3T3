@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initLangList(){
 
-        pets = new ArrayList<Pet>();
+        pets = new ArrayList<>();
         pets.add(new Pet("Steam", 0, R.drawable.dog1));
         pets.add(new Pet("Pitus", 0, R.drawable.panda2));
         pets.add(new Pet("Fido", 0, R.drawable.pig3));

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.marwilc.myapp.activitys.ContactActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <include
+            android:id="@+id/myActionBarContact"
+            layout="@layout/actionbar2"
+            >
+
+        </include>
+
+        <TextView
+            android:id="@+id/tvMailTo"
+            android:gravity="center"
+            android:text="@string/mailToDeveloper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_viewBotton"
+            android:padding="@dimen/card_viewBotton"
+            />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/etEditTextNameContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintName"
+            android:textColorHighlight="@color/colorAccent"
+            />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/etEditTextEmailContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintEmail"
+            android:textColorHighlight="@color/colorAccent"
+            />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/etEditTextMessageContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintMessage"
+            android:textColorHighlight="@color/colorAccent"
+            />
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnSendContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_send"
+        android:layout_margin="@dimen/card_viewBotton"
+        android:elevation="@dimen/elevation_floating_actionButton"
+        />
+
+
+
+</android.support.design.widget.CoordinatorLayout>

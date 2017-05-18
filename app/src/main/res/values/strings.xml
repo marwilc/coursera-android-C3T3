@@ -5,4 +5,8 @@
     <string name="mAbout">About</string>
     <string name="mContact">Contact</string>
     <string name="mFavorites">Favorites</string>
+    <string name="hintName">Name: </string>
+    <string name="hintEmail">Email: </string>
+    <string name="hintMessage">Message: </string>
+    <string name="mailToDeveloper">Mail to marwilcampos@gmail.com</string>
 </resources>
