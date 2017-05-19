@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <include android:id="@+id/myActionBar2"
-            layout="@layout/actionbar2">
+            layout="@layout/actionbar">
         </include>
 
         <FrameLayout
@@ -22,7 +22,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvFavorites"
-                android:layout_below="@+id/myActionBar2"
+                android:layout_below="@+id/myActionBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

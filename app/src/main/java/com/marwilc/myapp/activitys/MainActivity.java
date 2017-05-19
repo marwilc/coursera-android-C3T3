@@ -3,6 +3,9 @@ package com.marwilc.myapp.activitys;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +18,8 @@ import android.view.MenuItem;
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.adapters.PetAdapter;
 import com.marwilc.myapp.connections.Mail;
+import com.marwilc.myapp.fragments.ProfileFragment;
+import com.marwilc.myapp.fragments.RecyclerViewFragment;
 import com.marwilc.myapp.modelData.Pet;
 
 import java.util.ArrayList;
@@ -24,28 +29,31 @@ import javax.mail.MessagingException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Pet> pets;
-    private RecyclerView recyclerViewPets;
+
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private RecyclerViewFragment rvfPets;
+    private ProfileFragment pfProfilePet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myActionBar = (Toolbar) findViewById(R.id.myActionBar);
-        setSupportActionBar(myActionBar);
+        toolbar     = (Toolbar) findViewById(R.id.myActionBar);
+        tabLayout   = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager   = (ViewPager) findViewById(R.id.viewPager);
 
-        recyclerViewPets = (RecyclerView) findViewById(R.id.rvAvatars);
+        setupViewPager();
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        recyclerViewPets.setLayoutManager(llm);
-        initLangList();
-        initAdapter();
+        if (toolbar != null)
+            setSupportActionBar(toolbar);
 
      }
 
-     // crear menu e inflar
+
+    // crear menu e inflar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_option,menu);
@@ -77,42 +85,57 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void initLangList(){
+    private ArrayList<Fragment> aggFragments(){
+        ArrayList<Fragment> fragmets = new ArrayList<>();
 
-        pets = new ArrayList<>();
-        pets.add(new Pet("Steam", 0, R.drawable.dog1));
-        pets.add(new Pet("Pitus", 0, R.drawable.panda2));
-        pets.add(new Pet("Fido", 0, R.drawable.pig3));
-        pets.add(new Pet("Try", 0, R.drawable.pinguin4));
-        pets.add(new Pet("Reapper", 0, R.drawable.cat5));
-        pets.add(new Pet("Tin", 0, R.drawable.rabbit6));
+        rvfPets         = new RecyclerViewFragment();
+        pfProfilePet    = new ProfileFragment();   
+        fragmets.add(rvfPets);
+        fragmets.add(pfProfilePet);
+
+        return fragmets;
     }
 
-    public void initAdapter(){
-        PetAdapter adapter = new PetAdapter(pets,this);
-        recyclerViewPets.setAdapter(adapter);
+    private void setupViewPager() {
 
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),aggFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_pets_1);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_pets_2);
     }
+
+
+
 
     public void toFavoritesActivity(){
         ArrayList<Pet> fivePets = buildFiveListPets();
         Log.i("size array five", Integer.toString(fivePets.size()));
 
-        Intent intent = new Intent(this,FavoritesActivity.class);
-        intent.putExtra("fivePets", fivePets);
-        startActivity(intent);
+        if(fivePets.size() != 0 ) {
+            Intent intent = new Intent(this, FavoritesActivity.class);
+            intent.putExtra("fivePets", fivePets);
+            startActivity(intent);
+        }
+        else
+            displayMessage("no favorites to show");
+    }
+
+    public void displayMessage(String message) {
+        Snackbar.make(findViewById(R.id.mFavorites), message, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 
     public ArrayList<Pet> buildFiveListPets() {
 
         ArrayList<Pet> list = new ArrayList<>();
-        this.bubblesort(pets);
+        this.bubblesort(rvfPets.getAlPets());
 
         int i=0;
 
 
-        while (pets.get(i).getLikes() > 0 && list.size() < 5){
-            list.add(pets.get(i));
+        while (rvfPets.getAlPets().get(i).getLikes() > 0 && list.size() < 5){
+            list.add(rvfPets.getAlPets().get(i));
             Log.i("pets.get(i)", Integer.toString(list.get(i).getLikes()));
             i++;
 

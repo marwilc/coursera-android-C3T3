@@ -16,7 +16,7 @@
 
         <include
             android:id="@+id/myActionBarContact"
-            layout="@layout/actionbar2"
+            layout="@layout/actionbar"
             >
 
         </include>

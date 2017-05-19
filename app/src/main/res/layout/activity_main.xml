@@ -6,38 +6,44 @@
     android:layout_height="match_parent"
     tools:context="com.marwilc.myapp.activitys.MainActivity">
 
-    <LinearLayout
+
+
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
 
         <include android:id="@+id/myActionBar"
             layout="@layout/actionbar">
         </include>
 
-        <FrameLayout
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvAvatars"
-                android:layout_below="@+id/myActionBar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        </android.support.design.widget.TabLayout>
 
-            </android.support.v7.widget.RecyclerView>
+    </android.support.design.widget.AppBarLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/myFab"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/card_viewBotton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_camera"
-                android:elevation="@dimen/elevation_floating_actionButton"
-                />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
-        </FrameLayout>
-    </LinearLayout>
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/myFab"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/card_viewBotton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_camera"
+        android:elevation="@dimen/elevation_floating_actionButton"
+        />
 
 </android.support.design.widget.CoordinatorLayout>

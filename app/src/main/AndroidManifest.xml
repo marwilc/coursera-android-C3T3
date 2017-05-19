@@ -26,7 +26,15 @@
                 android:value=".activitys.MainActivity" />
         </activity>
         <activity android:name=".activitys.AboutActivity" />
-        <activity android:name=".activitys.ContactActivity"></activity>
+        <activity
+            android:name=".activitys.ContactActivity"
+            android:parentActivityName=".activitys.MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activitys.MainActivity" />
+
+        </activity>
     </application>
 
 </manifest>

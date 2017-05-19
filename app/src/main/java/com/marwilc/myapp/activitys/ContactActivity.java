@@ -1,17 +1,22 @@
 package com.marwilc.myapp.activitys;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.connections.Mail;
+
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.MessagingException;
@@ -24,11 +29,16 @@ public class ContactActivity extends AppCompatActivity {
     private TextInputEditText body;
     private TextView recipient;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
+        Toolbar myActionBar = (Toolbar) findViewById(R.id.myActionBarContact);
+        setSupportActionBar(myActionBar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         addBtnSend();
 
         user        = (TextInputEditText) findViewById(R.id.etEditTextEmailContact);
@@ -38,6 +48,7 @@ public class ContactActivity extends AppCompatActivity {
         recipient   = (TextView) findViewById(R.id.tvDeveloper);
 
     }
+
 
     // add button send
     public void addBtnSend(){
@@ -69,6 +80,8 @@ public class ContactActivity extends AppCompatActivity {
         Snackbar.make(findViewById(R.id.btnSendContact), message, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
+
+
 }
 
 

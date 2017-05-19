@@ -2,6 +2,9 @@ package com.marwilc.myapp.modelData;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * Created by marwilc on 15/05/17.
@@ -71,4 +74,7 @@ public class Pet implements Parcelable{
         dest.writeInt(likes);
         dest.writeInt(picture);
     }
+
+
+
 }
