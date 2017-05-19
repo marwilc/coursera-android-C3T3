@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.marwilc.myapp.R;
+import com.marwilc.myapp.adapters.PageAdapter;
 import com.marwilc.myapp.adapters.PetAdapter;
 import com.marwilc.myapp.connections.Mail;
 import com.marwilc.myapp.fragments.ProfileFragment;
