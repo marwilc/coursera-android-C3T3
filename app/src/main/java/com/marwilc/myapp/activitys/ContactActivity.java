@@ -43,7 +43,7 @@ public class ContactActivity extends AppCompatActivity {
 
         user        = (TextInputEditText) findViewById(R.id.etEditTextEmailContact);
         pass        = (TextInputEditText) findViewById(R.id.etEditTextPassContact);
-        subject     = Integer.toString(R.string.subject);
+        subject     = "comment for app";
         body        = (TextInputEditText) findViewById(R.id.etEditTextBodyContact);
         recipient   = (TextView) findViewById(R.id.tvDeveloper);
 
