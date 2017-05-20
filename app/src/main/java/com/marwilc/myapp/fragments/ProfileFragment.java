@@ -36,7 +36,7 @@ public class ProfileFragment extends Fragment {
         rvProfile = (RecyclerView) v.findViewById(R.id.rvAvatars2);
         CircularImageView civProfile    = (CircularImageView) v.findViewById(R.id.ivAvatarFragmentProfile);
         TextView tvName                 = (TextView) v.findViewById(R.id.tvNameFragmentProfile);
-        
+
         GridLayoutManager glmGrid = new GridLayoutManager(getActivity(), 3);
         rvProfile.setLayoutManager(glmGrid);
 
