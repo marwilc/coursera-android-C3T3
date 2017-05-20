@@ -4,6 +4,5 @@
     <dimen name="card_viewBotton">20dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
     <dimen name="img_button_dimen">38dp</dimen>
-    <dimen name="marginleft">10dp</dimen>
     <dimen name="elevation_floating_actionButton">6dp</dimen>
 </resources>
