@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.marwilc.myapp.activitys.MainActivity">
+    tools:context="com.marwilc.myapp.view.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,18 +16,13 @@
             layout="@layout/actionbar">
         </include>
 
-        <FrameLayout
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvFavorites"
-                android:layout_below="@+id/myActionBar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </android.support.v7.widget.RecyclerView>
-        </FrameLayout>
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+        </android.support.v4.view.ViewPager>
     </LinearLayout>
 
 </RelativeLayout>

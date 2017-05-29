@@ -1,4 +1,4 @@
-package com.marwilc.myapp.fragments;
+package com.marwilc.myapp.view.fragments;
 
 
 import android.os.Bundle;
@@ -12,26 +12,19 @@ import android.view.ViewGroup;
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.adapters.PetAdapter;
 import com.marwilc.myapp.modelData.Pet;
+import com.marwilc.myapp.presenter.IRecyclerViewFragmentPresenter;
+import com.marwilc.myapp.presenter.RecyclerViewFragmentPresenter;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
 
-
-    private ArrayList<Pet> alPets;
     private RecyclerView rvPets;
+    private IRecyclerViewFragmentPresenter presenter;
 
-    public ArrayList<Pet> getAlPets() {
-        return alPets;
-    }
-
-    public void setAlPets(ArrayList<Pet> alPets) {
-        this.alPets = alPets;
-    }
-    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,29 +34,26 @@ public class RecyclerViewFragment extends Fragment {
 
         rvPets = (RecyclerView) v.findViewById(R.id.rvAvatars);
 
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        rvPets.setLayoutManager(llm);
-
-        initPetList();
-        initAdapter();
+        presenter = new RecyclerViewFragmentPresenter(this, getContext());
         return v;
     }
 
-    public void initPetList(){
-
-        alPets = new ArrayList<>();
-        alPets.add(new Pet("Steam", 0, R.drawable.dog1));
-        alPets.add(new Pet("Pitus", 0, R.drawable.panda2));
-        alPets.add(new Pet("Fido", 0, R.drawable.pig3));
-        alPets.add(new Pet("Try", 0, R.drawable.pinguin4));
-        alPets.add(new Pet("Reapper", 0, R.drawable.cat5));
-        alPets.add(new Pet("Tin", 0, R.drawable.rabbit6));
+    @Override
+    public void generateLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rvPets.setLayoutManager(llm);
     }
 
-    public void initAdapter(){
-        PetAdapter adapter = new PetAdapter(alPets,getActivity());
+    @Override
+    public PetAdapter createAdapter(ArrayList<Pet> pets) {
+        PetAdapter adapter = new PetAdapter(pets, getActivity());
+        return adapter;
+    }
+
+    @Override
+    public void initAdapterRV(PetAdapter adapter) {
         rvPets.setAdapter(adapter);
 
     }
-
 }

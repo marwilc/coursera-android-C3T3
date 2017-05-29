@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.marwilc.myapp.db.BuilderPets;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.R;
 
@@ -19,27 +20,27 @@ import java.util.ArrayList;
  * Created by marwilc on 15/05/17.
  */
 
-public class PetAdapter extends RecyclerView.Adapter<PetAdapter.LangViewHolder>{
+public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
     ArrayList<Pet> pets;
     Activity activity;
 
     public PetAdapter(ArrayList<Pet> pets, Activity activity){
-        this.pets = pets;
+        this.pets       = pets;
         this.activity   = activity;
     }
 
     @Override
-    public LangViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_avatar,parent,false);
-        return new LangViewHolder(v);
+        return new PetViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(PetAdapter.LangViewHolder holder, int position) {
+    public void onBindViewHolder(final PetViewHolder holder, int position) {
         final Pet pet = pets.get(position);
         holder.imgPicture.setImageResource(pet.getPicture());
         holder.tvNameCv.setText(pet.getName());
-        holder.tvLikesCv.setText(Integer.toString(pet.getLikes()));
+        holder.tvLikesCv.setText(String.valueOf(pet.getLikes()));
 
         holder.imgPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,25 +52,30 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.LangViewHolder>{
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pet.setLikes(pet.getLikes()+1);
-                Toast.makeText(activity, "like:" + pet.getLikes(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "like:" + holder.tvLikesCv.getText(),Toast.LENGTH_SHORT).show();
+                BuilderPets builderPets = new BuilderPets(activity);
+                builderPets.toLikePet(pet);
+
+                holder.tvLikesCv.setText(String.valueOf(builderPets.getLikesPet(pet)));
+
             }
         });
 
     }
+
 
     @Override
     public int getItemCount() {
         return pets.size();
     }
 
-    public static class LangViewHolder extends RecyclerView.ViewHolder{
+    public static class PetViewHolder extends RecyclerView.ViewHolder{
         private ImageView imgPicture;
         private TextView tvNameCv;
         private TextView tvLikesCv;
         private ImageButton btnLike;
 
-        public LangViewHolder(View itemView){
+        public PetViewHolder(View itemView){
             super(itemView);
             imgPicture  = (ImageView) itemView.findViewById(R.id.imgAvatarCv);
             tvNameCv    = (TextView) itemView.findViewById(R.id.tvNameCv);

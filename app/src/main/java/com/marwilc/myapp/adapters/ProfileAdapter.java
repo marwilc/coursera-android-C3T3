@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.marwilc.myapp.R;
-import com.marwilc.myapp.fragments.RecyclerViewFragment;
 import com.marwilc.myapp.modelData.Pet;
 
 import java.util.ArrayList;

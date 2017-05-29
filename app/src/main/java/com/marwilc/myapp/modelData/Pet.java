@@ -11,8 +11,9 @@ import java.util.ArrayList;
  */
 
 public class Pet implements Parcelable{
+    private int id;
     private String name;
-    private int likes;
+    private int likes = 0;
     private int picture;
 
     public Pet(String name, int likes, int picture) {
@@ -38,6 +39,10 @@ public class Pet implements Parcelable{
             return new Pet[size];
         }
     };
+
+    public Pet() {
+
+    }
 
     public String getName() {
         return name;
@@ -76,5 +81,11 @@ public class Pet implements Parcelable{
     }
 
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }

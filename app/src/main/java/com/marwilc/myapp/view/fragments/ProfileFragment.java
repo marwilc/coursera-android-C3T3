@@ -1,4 +1,4 @@
-package com.marwilc.myapp.fragments;
+package com.marwilc.myapp.view.fragments;
 
 
 import android.os.Bundle;

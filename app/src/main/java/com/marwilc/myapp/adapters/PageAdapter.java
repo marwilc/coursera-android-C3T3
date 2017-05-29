@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.marwilc.myapp.view.fragments.RecyclerViewFragmentFavorites;
+
 import java.util.ArrayList;
 
 /**
@@ -18,6 +20,7 @@ public class PageAdapter extends FragmentPagerAdapter{
         super(fm);
         this.fragments = fragments;
     }
+
 
     @Override
     public Fragment getItem(int position) {

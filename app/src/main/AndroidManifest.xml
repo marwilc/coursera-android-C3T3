@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activitys.MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,20 +19,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.FavoritesActivity"
-            android:parentActivityName=".activitys.MainActivity">
+            android:name=".view.FavoritesActivity"
+            android:parentActivityName=".view.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activitys.MainActivity" />
+                android:value=".view.MainActivity" />
         </activity>
-        <activity android:name=".activitys.AboutActivity" />
+        <activity android:name=".view.AboutActivity" />
         <activity
-            android:name=".activitys.ContactActivity"
-            android:parentActivityName=".activitys.MainActivity">
+            android:name=".view.ContactActivity"
+            android:parentActivityName=".view.MainActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activitys.MainActivity" />
+                android:value=".view.MainActivity" />
 
         </activity>
     </application>

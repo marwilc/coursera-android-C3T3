@@ -1,4 +1,4 @@
-package com.marwilc.myapp.activitys;
+package com.marwilc.myapp.view;
 
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;

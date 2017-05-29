@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.marwilc.myapp.activitys.ContactActivity">
+    tools:context="com.marwilc.myapp.view.ContactActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
