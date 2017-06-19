@@ -60,9 +60,9 @@ public class DataBase extends SQLiteOpenHelper {
         while (registers.moveToNext()){
             int tempLikes;
             Pet currentPet = new Pet();
-            currentPet.setId(registers.getInt(0));
+            currentPet.setId(registers.getString(0));
             currentPet.setName(registers.getString(1));
-            currentPet.setPicture(registers.getInt(2));
+            currentPet.setUrlPicture(registers.getString(2));
 
             tempLikes = getLikesPet(currentPet);
             currentPet.setLikes(tempLikes);
@@ -85,9 +85,9 @@ public class DataBase extends SQLiteOpenHelper {
 
         while (registers.moveToNext() && alPets.size()<5){
             Pet currentPet = new Pet();
-            currentPet.setId(registers.getInt(0));
+            currentPet.setId(registers.getString(0));
             currentPet.setName(registers.getString(1));
-            currentPet.setPicture(registers.getInt(2));
+            currentPet.setUrlPicture(registers.getString(2));
 
             tempLikes = getLikesPet(currentPet);
 

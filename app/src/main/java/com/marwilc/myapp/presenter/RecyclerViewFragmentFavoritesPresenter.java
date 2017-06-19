@@ -36,6 +36,26 @@ public class RecyclerViewFragmentFavoritesPresenter implements IRecyclerViewFrag
     }
 
     @Override
+    public void getRecentMedia() {
+
+    }
+
+    @Override
+    public void getRecentMediaById(String id) {
+
+    }
+
+    @Override
+    public void getDataUser(String userName) {
+
+    }
+
+    @Override
+    public void getFollowsUser() {
+
+    }
+
+    @Override
     public void showPetsRV() {
         iRecyclerViewFragmentView.initAdapterRV(iRecyclerViewFragmentView.createAdapter(alPets));
         iRecyclerViewFragmentView.generateLinearLayoutVertical();

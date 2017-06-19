@@ -2,30 +2,29 @@ package com.marwilc.myapp.modelData;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-
-import java.util.ArrayList;
 
 /**
  * Created by marwilc on 15/05/17.
  */
 
 public class Pet implements Parcelable{
-    private int id;
+    private String id;
     private String name;
     private int likes = 0;
-    private int picture;
+    private String urlPicture;
+    private String urlProfilePicture;
 
-    public Pet(String name, int likes, int picture) {
+    public Pet(String name, int likes, String urlPicture, String urlProfilePicture) {
         this.name = name;
         this.likes = likes;
-        this.picture = picture;
+        this.urlPicture = urlPicture;
+        this.urlProfilePicture = urlProfilePicture;
     }
 
     protected Pet(Parcel in) {
         name = in.readString();
         likes = in.readInt();
-        picture = in.readInt();
+        urlPicture = in.readString();
     }
 
     public static final Parcelable.Creator<Pet> CREATOR = new Parcelable.Creator<Pet>() {
@@ -60,12 +59,20 @@ public class Pet implements Parcelable{
         this.likes = likes;
     }
 
-    public int getPicture() {
-        return picture;
+    public String getUrlPicture() {
+        return urlPicture;
     }
 
-    public void setPicture(int picture) {
-        this.picture = picture;
+    public void setUrlPicture(String urlPicture) {
+        this.urlPicture = urlPicture;
+    }
+
+    public String getUrlProfilePicture() {
+        return urlProfilePicture;
+    }
+
+    public void setUrlProfilePicture(String urlProfilePicture) {
+        this.urlProfilePicture = urlProfilePicture;
     }
 
     @Override
@@ -77,15 +84,19 @@ public class Pet implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeInt(likes);
-        dest.writeInt(picture);
+        dest.writeString(urlPicture);
+        dest.writeString(urlProfilePicture);
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
+
+
+
 }

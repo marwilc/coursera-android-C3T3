@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.modelData.Pet;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,9 +39,17 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
     public void onBindViewHolder(ProfileViewHolder holder, int position) {
 
         final Pet pet = pets.get(position);
-        String likes= Integer.toString(pet.getLikes());
-        holder.ivPicture.setImageResource(pet.getPicture());
-        holder.tvlikes.setText(likes);
+        Picasso.with(activity)
+                .load(pet.getUrlPicture())
+                .placeholder(R.drawable.generic_avatar)
+                .into(holder.ivPicture);
+
+       /* Picasso.with(activity)
+                .load(pet.getUrlPicture())  // cambiar por profile picture
+                .placeholder(R.drawable.generic_avatar)
+                .into(holder.civProfilePicture); // prueba
+*/
+        holder.tvlikes.setText(String.valueOf(pet.getLikes()));;
     }
 
 

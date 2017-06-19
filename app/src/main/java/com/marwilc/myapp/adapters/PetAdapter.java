@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.marwilc.myapp.db.BuilderPets;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,11 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
     @Override
     public void onBindViewHolder(final PetViewHolder holder, int position) {
         final Pet pet = pets.get(position);
-        holder.imgPicture.setImageResource(pet.getPicture());
+        Picasso.with(activity)
+                .load(pet.getUrlPicture())
+                .placeholder(R.drawable.generic_avatar)
+                .into(holder.imgPicture);
+        //holder.imgPicture.setImageResource(pet.getPicture());
         holder.tvNameCv.setText(pet.getName());
         holder.tvLikesCv.setText(String.valueOf(pet.getLikes()));
 
@@ -49,6 +54,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             }
         });
 
+        /*
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +66,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
 
             }
         });
-
+        */
     }
 
 
@@ -73,14 +79,14 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
         private ImageView imgPicture;
         private TextView tvNameCv;
         private TextView tvLikesCv;
-        private ImageButton btnLike;
+        //private ImageButton btnLike;
 
         public PetViewHolder(View itemView){
             super(itemView);
             imgPicture  = (ImageView) itemView.findViewById(R.id.imgAvatarCv);
             tvNameCv    = (TextView) itemView.findViewById(R.id.tvNameCv);
             tvLikesCv   = (TextView) itemView.findViewById(R.id.tvNumberCv);
-            btnLike     = (ImageButton) itemView.findViewById(R.id.ibLike);
+            //btnLike     = (ImageButton) itemView.findViewById(R.id.ibLike);
 
         }
     }

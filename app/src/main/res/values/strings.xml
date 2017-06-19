@@ -13,6 +13,10 @@
     <string name="mailDeveloper">marwilcampos@gmail.com</string>
     <string name="Developer">Developer</string>
     <string name="About_me">About me</string>
+    <string name="mAccount">Account Setting</string>
+    <string name="tvAccount">My App</string>
+    <string name="tiWriteUser">Write you user</string>
+    <string name="saveAccount">Save Account</string>
     <string name="info">
         Hello my name is Marwil, I am from Venezuela, I am 23 years old and I love to program, I am
         currently studying the fifth semester of computer science at the University of Carabobo.

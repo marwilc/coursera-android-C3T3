@@ -74,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
                 // to activity favorites
                 toFavoritesActivity();
                 break;
+
+            case R.id.mAccount:
+                // to activity account settings
+                Intent intent3 = new Intent(this, AccountActivity.class);
+                startActivity(intent3);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -82,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Fragment> fragmets = new ArrayList<>();
 
         rvfPets         = new RecyclerViewFragment();
-        pfProfilePet    = new ProfileFragment();   
+        pfProfilePet    = new ProfileFragment();
         fragmets.add(rvfPets);
         fragmets.add(pfProfilePet);
 
