@@ -5,7 +5,10 @@ import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.PetResponse;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -36,6 +39,10 @@ public interface IEndPointsAPI {
     // users/self/follows?access_token=5032752476.d7427a7.662119d95916416a9bf831bc60894c65
     @GET(RestConstantsAPI.URL_GET_FOLLOWS_USER)
     Call<PetResponse> getFollowsUser();
+
+    @FormUrlEncoded
+    @POST(RestConstantsAPI.KEY_POST_INSTAGRAM_USER)
+    Call<PetResponse> registerUser(@Field("id_device") String device, @Field("id_user") String user);
 
 
 }

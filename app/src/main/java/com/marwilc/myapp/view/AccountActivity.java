@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.marwilc.myapp.IOFile.MyJson;
 import com.marwilc.myapp.R;
@@ -30,6 +31,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private TextInputEditText   tietAccountUser;
     private ArrayList<Pet> pets;
+    private Button btnSaveAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account);
 
         tietAccountUser = (TextInputEditText) findViewById(R.id.tiUser);
-        final Button              btnSaveAccount  = (Button)            findViewById(R.id.btnSaveAccount);
+        btnSaveAccount  = (Button)            findViewById(R.id.btnSaveAccount);
 
         btnSaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +50,8 @@ public class AccountActivity extends AppCompatActivity {
 
                 Snackbar.make(btnSaveAccount, "succes", Snackbar.LENGTH_LONG).show();
 
-
-
             }
         });
-
-
     }
 
     private void getDataUser(String userName) {
@@ -73,9 +71,10 @@ public class AccountActivity extends AppCompatActivity {
 
                 pets = petResponse.getPets();
 
-                if (pets.size()>0)
-                    MyJson.saveData(getBaseContext(), pets.get(0).getId()); // guardar el Json en un archivo
-
+                if (pets.size()>0) {
+                    //MyJson.saveData(getBaseContext(), pets.get(0).getId()); // guardar el Json en un archivo
+                    sendToken(pets.get(0).getId());
+                }
 
             }
 
@@ -86,5 +85,36 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
     }
+
+    // recibe un id de usuario y configura el id del dispositivo a registrarse para enviarlo a firebase
+    public void sendToken  (String idUser) {
+        String idDevice = FirebaseInstanceId.getInstance().getToken();
+        sendTokenRegister(idDevice , idUser);
+    }
+
+    private void sendTokenRegister(String idDevice, String idUser){
+        Log.d("ID_DEVICE",idDevice);
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        IEndPointsAPI iEndPoints = restApiAdapter.setConnectionRestAPIServer();
+        Call<PetResponse> responseUserCall = iEndPoints.registerUser(idDevice, idUser);
+
+        responseUserCall.enqueue(new Callback<PetResponse>() {
+
+            @Override
+            public void onResponse(Call<PetResponse> call, Response<PetResponse> response) {
+
+                PetResponse responseUser= response.body();
+                Log.d("ID_DEVICE", responseUser.getToken());
+                Log.d("ID_USER", responseUser.getId());
+            }
+
+            @Override
+            public void onFailure(Call<PetResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    // termina el registro de usuarion
 
 }

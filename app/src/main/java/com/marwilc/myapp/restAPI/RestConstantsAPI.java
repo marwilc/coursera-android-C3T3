@@ -19,6 +19,11 @@ public final class RestConstantsAPI {
     public static final String KEY_GET_FOLLOWS_USER = "users/self/follows";
     public static final String ROOT_URL = "https://api.instagram.com" + VERSION;
 
+    // direccion de la aplicacion node.js
+    public static final String ROOT_URL_SERVER = "https://fathomless-ravine-76673.herokuapp.com/";
+    public static final String KEY_POST_ID_TOKEN = "token-device/";
+    public static final String KEY_POST_INSTAGRAM_USER = "instagram-user/";
+
     // users/search
     public static final String KEY_GET_USER_BY_USERNAME = "users/search";
 

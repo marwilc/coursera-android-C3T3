@@ -11,14 +11,23 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.adapters.PageAdapter;
+import com.marwilc.myapp.restAPI.IEndPointsAPI;
+import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
+import com.marwilc.myapp.restAPI.model.PetResponse;
 import com.marwilc.myapp.view.fragments.ProfileFragment;
 import com.marwilc.myapp.view.fragments.RecyclerViewFragment;
 import com.marwilc.myapp.modelData.Pet;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(this, AccountActivity.class);
                 startActivity(intent3);
                 break;
+
+            case R.id.mNotifications:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -110,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FavoritesActivity.class);
         startActivity(intent);
     }
+
+
 }
 
 

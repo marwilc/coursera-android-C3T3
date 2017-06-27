@@ -21,6 +21,7 @@
         Hello my name is Marwil, I am from Venezuela, I am 23 years old and I love to program, I am
         currently studying the fifth semester of computer science at the University of Carabobo.
     </string>
+    <string name="notifications_menu">Receive Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

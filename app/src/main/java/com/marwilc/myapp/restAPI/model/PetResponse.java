@@ -12,7 +12,18 @@ import java.util.ArrayList;
  */
 
 public class PetResponse {
-    ArrayList<Pet> pets;
+    private ArrayList<Pet> pets;
+    private String token;
+    private String id;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public ArrayList<Pet> getPets(){
         return pets;
@@ -20,5 +31,13 @@ public class PetResponse {
 
     public void setPets(ArrayList<Pet> pets) {
         this.pets = pets;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

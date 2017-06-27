@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "930151441565",
+    "firebase_url": "https://instapetapp-7715c.firebaseio.com",
+    "project_id": "instapetapp-7715c",
+    "storage_bucket": "instapetapp-7715c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930151441565:android:6d77f81810007715",
+        "android_client_info": {
+          "package_name": "com.marwilc.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930151441565-23gs4d83jdd9rltq4n1bqlffpcb7s357.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBScwZUEICLwElkSSQUrD6Pn8vTEYv-SVw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

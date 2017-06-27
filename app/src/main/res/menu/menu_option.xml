@@ -37,4 +37,12 @@
 
     </item>
 
+    <item
+    android:id="@+id/mNotifications"
+    android:title="@string/notifications_menu"
+    android:orderInCategory="104"
+    >
+
+</item>
+
 </menu>

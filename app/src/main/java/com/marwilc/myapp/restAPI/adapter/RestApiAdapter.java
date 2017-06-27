@@ -46,4 +46,14 @@ public class RestApiAdapter {
 
         return gsonBuilder.create();
     }
+
+    public IEndPointsAPI setConnectionRestAPIServer() {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RestConstantsAPI.ROOT_URL_SERVER)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(IEndPointsAPI.class);
+    }
 }
