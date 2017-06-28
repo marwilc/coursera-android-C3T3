@@ -30,9 +30,6 @@ public class ProfileFragment extends Fragment implements IRecyclerViewFragmentVi
 
     private RecyclerView rvProfile;
     private IRecyclerViewFragmentPresenter presenter;
-    //private CircularImageView civProfile;
-    //private TextView tvName;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,8 +39,6 @@ public class ProfileFragment extends Fragment implements IRecyclerViewFragmentVi
         View v = inflater.inflate(R.layout.fragment_profile, container,false);
 
         rvProfile     = (RecyclerView) v.findViewById(R.id.rvAvatars2);
-        //civProfile    = (CircularImageView) v.findViewById(R.id.ivAvatarFragmentProfile);
-        //tvName        = (TextView) v.findViewById(R.id.tvNameFragmentProfile);
         presenter = new ProfileFragmentPresenter(this,getContext(), getActivity(), v);
         return v;
     }

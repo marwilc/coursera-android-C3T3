@@ -3,6 +3,7 @@ package com.marwilc.myapp.restAPI;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.PetResponse;
+import com.marwilc.myapp.restAPI.model.ResponseUser;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -41,8 +42,8 @@ public interface IEndPointsAPI {
     Call<PetResponse> getFollowsUser();
 
     @FormUrlEncoded
-    @POST(RestConstantsAPI.KEY_POST_INSTAGRAM_USER)
-    Call<PetResponse> registerUser(@Field("id_device") String device, @Field("id_user") String user);
+    @POST(RestConstantsAPI.KEY_POST_USER_INSTAGRAM)
+    Call<ResponseUser> registerUser(@Field("id_device") String idDevice, @Field("id_user")String idUser);
 
 
 }

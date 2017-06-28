@@ -16,6 +16,10 @@ public class PetResponse {
     private String token;
     private String id;
 
+    public PetResponse(String token, String id) {
+        this.token = token;
+        this.id = id;
+    }
 
     public String getId() {
         return id;

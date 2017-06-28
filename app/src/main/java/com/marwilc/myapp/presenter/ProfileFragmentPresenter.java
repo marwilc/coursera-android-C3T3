@@ -11,10 +11,12 @@ import com.google.gson.Gson;
 import com.marwilc.myapp.IOFile.MyJson;
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.db.BuilderPets;
+import com.marwilc.myapp.db.adapter.InstagramUserAdapterDB;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.restAPI.IEndPointsAPI;
 import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.PetResponse;
+import com.marwilc.myapp.restAPI.model.ResponseUser;
 import com.marwilc.myapp.view.fragments.IRecyclerViewFragmentView;
 import com.marwilc.myapp.view.fragments.ProfileFragment;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -50,10 +52,13 @@ public class ProfileFragmentPresenter implements IRecyclerViewFragmentPresenter 
         this.activity= activity;
         this.v = v;
 
-        String id = MyJson.getData(context); //retorna el Id guardado en el archivo
-        if(id != null)
+        String id;//retorna el Id guardado en el archivo
+        InstagramUserAdapterDB userAdapterDB = new InstagramUserAdapterDB(context);
+        ArrayList<ResponseUser> userArrayList = userAdapterDB.getData();
+        if(!userArrayList.isEmpty()){
+            id = userArrayList.get(0).getIdUser();
             getRecentMediaById(id);
-
+        }
     }
 
     @Override

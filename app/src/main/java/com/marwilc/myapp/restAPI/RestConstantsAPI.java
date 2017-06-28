@@ -22,7 +22,7 @@ public final class RestConstantsAPI {
     // direccion de la aplicacion node.js
     public static final String ROOT_URL_SERVER = "https://fathomless-ravine-76673.herokuapp.com/";
     public static final String KEY_POST_ID_TOKEN = "token-device/";
-    public static final String KEY_POST_INSTAGRAM_USER = "instagram-user/";
+    public static final String KEY_POST_USER_INSTAGRAM = "user-instagram/";
 
     // users/search
     public static final String KEY_GET_USER_BY_USERNAME = "users/search";

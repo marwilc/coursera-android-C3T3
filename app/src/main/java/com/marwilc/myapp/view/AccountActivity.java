@@ -14,12 +14,14 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.marwilc.myapp.IOFile.MyJson;
 import com.marwilc.myapp.R;
+import com.marwilc.myapp.db.adapter.InstagramUserAdapterDB;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.presenter.IRecyclerViewFragmentPresenter;
 import com.marwilc.myapp.restAPI.IEndPointsAPI;
 import com.marwilc.myapp.restAPI.RestConstantsAPI;
 import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.PetResponse;
+import com.marwilc.myapp.restAPI.model.ResponseUser;
 
 import java.util.ArrayList;
 
@@ -72,8 +74,9 @@ public class AccountActivity extends AppCompatActivity {
                 pets = petResponse.getPets();
 
                 if (pets.size()>0) {
-                    //MyJson.saveData(getBaseContext(), pets.get(0).getId()); // guardar el Json en un archivo
-                    sendToken(pets.get(0).getId());
+                    seveUserInstagramToDB(pets.get(0).getId()); // guarda los datos del usuario en la base de datos local
+                    //sendToken(pets.get(0).getId());
+
                 }
 
             }
@@ -82,39 +85,17 @@ public class AccountActivity extends AppCompatActivity {
             public void onFailure(Call<PetResponse> call, Throwable t) {
                 Toast.makeText(getBaseContext(), "Error connection try again", Toast.LENGTH_SHORT).show();
                 Log.e("FAILURE CONNECTION", t.toString());
-            }
-        });
-    }
-
-    // recibe un id de usuario y configura el id del dispositivo a registrarse para enviarlo a firebase
-    public void sendToken  (String idUser) {
-        String idDevice = FirebaseInstanceId.getInstance().getToken();
-        sendTokenRegister(idDevice , idUser);
-    }
-
-    private void sendTokenRegister(String idDevice, String idUser){
-        Log.d("ID_DEVICE",idDevice);
-        RestApiAdapter restApiAdapter = new RestApiAdapter();
-        IEndPointsAPI iEndPoints = restApiAdapter.setConnectionRestAPIServer();
-        Call<PetResponse> responseUserCall = iEndPoints.registerUser(idDevice, idUser);
-
-        responseUserCall.enqueue(new Callback<PetResponse>() {
-
-            @Override
-            public void onResponse(Call<PetResponse> call, Response<PetResponse> response) {
-
-                PetResponse responseUser= response.body();
-                Log.d("ID_DEVICE", responseUser.getToken());
-                Log.d("ID_USER", responseUser.getId());
-            }
-
-            @Override
-            public void onFailure(Call<PetResponse> call, Throwable t) {
 
             }
         });
     }
 
+    private void seveUserInstagramToDB(String id) {
+        //String idDevice = FirebaseInstanceId.getInstance().getToken(); // obtiene el id del dispositivo actual
+        InstagramUserAdapterDB userAdapterDB = new InstagramUserAdapterDB(getBaseContext());
+        userAdapterDB.insertUserToTableInstagram(id); // inserta ambos id en la BD
+        //sendTokenRegister(idDevice, idUser);
+    }
     // termina el registro de usuarion
 
 }
