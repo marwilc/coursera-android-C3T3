@@ -5,9 +5,13 @@ Es una aplicacion de prueba de una red social para mascotas.
 #Capturas
 
 ![Con titulo](screenshots/device-2017-06-27-212425.png "Captura 1")
+![Con titulo](screenshots/device-2017-06-18-204453.png "Captura 2")
+![Con titulo](screenshots/device-2017-06-18-204427.png "Captura 3")
+![Con titulo](screenshots/device-2017-06-18-204411.png "Captura 4")
+![Con titulo](screenshots/device-2017-06-18-204357.png "Captura 5")
 
 
-
+## init Template ----------------------------------------------------------
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -92,3 +96,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Inspiration
 * etc
 
+## end template ---------------------------------------------------------------
