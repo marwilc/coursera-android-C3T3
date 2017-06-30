@@ -7,42 +7,49 @@
     android:orientation="vertical">
 
 
-
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/ivAvatarFragmentProfile"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        app:civ_border_color="@color/colorAccent"
-        app:civ_border_width="4dp"
-        app:civ_shadow="true"
-        app:civ_shadow_radius="10"
-        app:civ_shadow_color="@color/cardview_dark_background"
-        android:src="@drawable/generic_avatar"
-        android:layout_gravity="center"
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivAvatarFragmentProfile"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="10"
+            app:civ_shadow_color="@color/cardview_dark_background"
+            android:src="@drawable/generic_avatar"
+            android:layout_gravity="center"
         />
 
-    <TextView
-        android:id="@+id/tvNameFragmentProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/nameAvatar"
-        android:gravity="center"
-        android:padding="@dimen/card_viewBotton"
-        android:textSize="@dimen/card_viewBotton"
-        />
+        <TextView
+            android:id="@+id/tvNameFragmentProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nameAvatar"
+            android:gravity="center"
+            android:padding="@dimen/card_viewBotton"
+            android:textSize="@dimen/card_viewBotton"
+            />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorPrimaryDark"
-        android:padding="@dimen/card_viewBotton"
-        />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimaryDark"
+            android:padding="@dimen/card_viewBotton"
+            />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvAvatars2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srlRefreshLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvAvatars2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

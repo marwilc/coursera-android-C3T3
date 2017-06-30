@@ -4,6 +4,7 @@ package com.marwilc.myapp.view.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,19 +29,33 @@ import java.util.ArrayList;
 public class ProfileFragment extends Fragment implements IRecyclerViewFragmentView {
 
 
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView rvProfile;
     private IRecyclerViewFragmentPresenter presenter;
+    private View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.fragment_profile, container,false);
+        v = inflater.inflate(R.layout.fragment_profile, container,false);
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.srlRefreshLayout2);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
 
         rvProfile     = (RecyclerView) v.findViewById(R.id.rvAvatars2);
         presenter = new ProfileFragmentPresenter(this,getContext(), getActivity(), v);
         return v;
+    }
+
+    private void refreshContent() {
+        presenter = new ProfileFragmentPresenter(this,getContext(), getActivity(), v);
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
