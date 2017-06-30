@@ -5,8 +5,10 @@ import com.google.gson.GsonBuilder;
 import com.marwilc.myapp.restAPI.IEndPointsAPI;
 import com.marwilc.myapp.restAPI.RestConstantsAPI;
 import com.marwilc.myapp.restAPI.deserializer.PetDeserializer;
+import com.marwilc.myapp.restAPI.deserializer.ResponseLikeDeserializer;
 import com.marwilc.myapp.restAPI.deserializer.UserDataDeserializer;
 import com.marwilc.myapp.restAPI.model.PetResponse;
+import com.marwilc.myapp.restAPI.model.ResponseLike;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -66,6 +68,11 @@ public class RestApiAdapter {
     }
 
 
+    public Gson buildGsonDeserializerSendLike() {
 
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(ResponseLike.class, new ResponseLikeDeserializer());
 
+        return gsonBuilder.create();
+    }
 }

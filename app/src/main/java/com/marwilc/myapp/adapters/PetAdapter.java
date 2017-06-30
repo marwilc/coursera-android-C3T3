@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.marwilc.myapp.db.BuilderPets;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.R;
@@ -53,7 +54,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
                 .load(pet.getUrlPicture())
                 .placeholder(R.drawable.generic_avatar)
                 .into(holder.imgPicture);
-        //holder.imgPicture.setImageResource(pet.getPicture());
+
         holder.tvNameCv.setText(pet.getName());
         holder.tvLikesCv.setText(String.valueOf(pet.getLikes()));
 
@@ -69,6 +70,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             @Override
             public void onClick(View v) {
                 tapLike(pet);
+
             }
         });
 
@@ -76,7 +78,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
 
     private void tapLike(Pet pet) {
         RestApiAdapter restApiAdapter = new RestApiAdapter();
-        IEndPointsAPI iEndPoints = restApiAdapter.setConnectionRestApiInstagram();
+        Gson gsonSendLike = restApiAdapter.buildGsonDeserializerSendLike();
+        IEndPointsAPI iEndPoints = restApiAdapter.setConnectionRestApiInstagram(gsonSendLike);
         Call<ResponseLike> responseLikeCall = iEndPoints.registerLike(RestConstantsAPI.ACCESS_TOKEN, pet.getIdPicture());
 
         responseLikeCall.enqueue(new Callback<ResponseLike>() {

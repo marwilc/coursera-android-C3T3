@@ -3,6 +3,7 @@ package com.marwilc.myapp.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
  */
 public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
 
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView rvPets;
     private IRecyclerViewFragmentPresenter presenter;
 
@@ -34,10 +36,24 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
         View v = inflater.inflate(R.layout.fragment_recycler_view,container,false);
         // Inflate the layout for this fragment
 
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.srlRefreshLayout);
         rvPets = (RecyclerView) v.findViewById(R.id.rvAvatars);
 
         presenter = new RecyclerViewFragmentPresenter(this, getContext());
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
+
+
         return v;
+    }
+
+    private void refreshContent() {
+        presenter = new RecyclerViewFragmentPresenter(this, getContext());
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
