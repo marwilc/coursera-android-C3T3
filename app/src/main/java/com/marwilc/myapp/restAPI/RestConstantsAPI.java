@@ -39,4 +39,5 @@ public final class RestConstantsAPI {
     public static final String URL_GET_FOLLOWS_USER = KEY_GET_FOLLOWS_USER + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
 
     public static final String KEY_USER_SEND_LIKE = "media/{media-id}/likes";
+    public static final String KEY_REGISTER_USER_LIKE = "user-like/";
 }

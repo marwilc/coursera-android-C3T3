@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.marwilc.myapp.db.BuilderPets;
 import com.marwilc.myapp.modelData.Pet;
@@ -20,6 +22,7 @@ import com.marwilc.myapp.restAPI.RestConstantsAPI;
 import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.ResponseLike;
 import com.marwilc.myapp.restAPI.model.ResponseUser;
+import com.marwilc.myapp.restAPI.model.ResponseUserLike;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -70,10 +73,36 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             @Override
             public void onClick(View v) {
                 tapLike(pet);
+                registerLikeToFireBase(pet);
 
             }
         });
 
+    }
+
+    private void registerLikeToFireBase(Pet pet) {
+        String idDevice = FirebaseInstanceId.getInstance().getToken();
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        IEndPointsAPI iEndPointsAPI = restApiAdapter.setConnectionRestAPIServer();
+        final Call<ResponseUserLike> responseUserLikeCall = iEndPointsAPI.registerUserLike(idDevice, pet.getId(), pet.getIdPicture());
+
+        responseUserLikeCall.enqueue(new Callback<ResponseUserLike>() {
+            @Override
+            public void onResponse(Call<ResponseUserLike> call, Response<ResponseUserLike> response) {
+                ResponseUserLike responseUserLike = response.body();
+
+                Log.d("id", responseUserLike.getId());
+                Log.d("id_device", responseUserLike.getId_device());
+                Log.d("id_user", responseUserLike.getId_user());
+                Log.d("id_picture", responseUserLike.getId_picture());
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUserLike> call, Throwable t) {
+
+            }
+        });
     }
 
     private void tapLike(Pet pet) {

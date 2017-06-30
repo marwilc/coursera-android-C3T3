@@ -5,6 +5,7 @@ import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.PetResponse;
 import com.marwilc.myapp.restAPI.model.ResponseLike;
 import com.marwilc.myapp.restAPI.model.ResponseUser;
+import com.marwilc.myapp.restAPI.model.ResponseUserLike;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -51,4 +52,11 @@ public interface IEndPointsAPI {
     @POST(RestConstantsAPI.KEY_USER_SEND_LIKE)
     Call<ResponseLike> registerLike(@Field("access_token") String accessToken,
                                     @Path("media-id") String idPicture);
+
+    //https://fathomless-ravine-76673.herokuapp.com/user-like
+    @FormUrlEncoded
+    @POST(RestConstantsAPI.KEY_REGISTER_USER_LIKE)
+    Call<ResponseUserLike> registerUserLike(@Field("id_device") String idDevice,
+                                            @Field("id_user")String id,
+                                            @Field("id_picture")String idPicture);
 }
