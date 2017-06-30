@@ -2,6 +2,7 @@ package com.marwilc.myapp.adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,18 @@ import android.widget.Toast;
 import com.marwilc.myapp.db.BuilderPets;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.R;
+import com.marwilc.myapp.restAPI.IEndPointsAPI;
+import com.marwilc.myapp.restAPI.RestConstantsAPI;
+import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
+import com.marwilc.myapp.restAPI.model.ResponseLike;
+import com.marwilc.myapp.restAPI.model.ResponseUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by marwilc on 15/05/17.
@@ -54,19 +64,36 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             }
         });
 
-        /*
+
         holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, "like:" + holder.tvLikesCv.getText(),Toast.LENGTH_SHORT).show();
-                BuilderPets builderPets = new BuilderPets(activity);
-                builderPets.toLikePet(pet);
+                tapLike(pet);
+            }
+        });
 
-                holder.tvLikesCv.setText(String.valueOf(builderPets.getLikesPet(pet)));
+    }
+
+    private void tapLike(Pet pet) {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        IEndPointsAPI iEndPoints = restApiAdapter.setConnectionRestApiInstagram();
+        Call<ResponseLike> responseLikeCall = iEndPoints.registerLike(RestConstantsAPI.ACCESS_TOKEN, pet.getIdPicture());
+
+        responseLikeCall.enqueue(new Callback<ResponseLike>() {
+
+            @Override
+            public void onResponse(Call<ResponseLike> call, Response<ResponseLike> response) {
+
+                ResponseLike responseLike = response.body();
+                Log.d("DATA", responseLike.getData());
+                Log.d("CODE", responseLike.getCode());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseLike> call, Throwable t) {
 
             }
         });
-        */
     }
 
 
@@ -79,14 +106,14 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
         private ImageView imgPicture;
         private TextView tvNameCv;
         private TextView tvLikesCv;
-        //private ImageButton btnLike;
+        private ImageButton btnLike;
 
         public PetViewHolder(View itemView){
             super(itemView);
             imgPicture  = (ImageView) itemView.findViewById(R.id.imgAvatarCv);
             tvNameCv    = (TextView) itemView.findViewById(R.id.tvNameCv);
             tvLikesCv   = (TextView) itemView.findViewById(R.id.tvNumberCv);
-            //btnLike     = (ImageButton) itemView.findViewById(R.id.ibLike);
+            btnLike     = (ImageButton) itemView.findViewById(R.id.ibLike);
 
         }
     }

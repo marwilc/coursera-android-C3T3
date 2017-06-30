@@ -20,4 +20,6 @@ public final class JsonKeys {
     public static final String MEDIA_LIKES                  = "likes";
     public static final String MEDIA_LIKES_COUNT            = "count";
 
+    public static final String JSON_META = "meta";
+    public static final String JSON_CODE = "code";
 }

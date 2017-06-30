@@ -31,6 +31,24 @@ public class RestApiAdapter {
 
     }
 
+    public IEndPointsAPI setConnectionRestApiInstagram() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RestConstantsAPI.ROOT_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(IEndPointsAPI.class);
+    }
+
+    public IEndPointsAPI setConnectionRestAPIServer() {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RestConstantsAPI.ROOT_URL_SERVER)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(IEndPointsAPI.class);
+    }
     // deserializador para la media recent data del usuario
     public Gson buildGsonDeserializerMediaRecent(){
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -47,13 +65,7 @@ public class RestApiAdapter {
         return gsonBuilder.create();
     }
 
-    public IEndPointsAPI setConnectionRestAPIServer() {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(RestConstantsAPI.ROOT_URL_SERVER)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        return retrofit.create(IEndPointsAPI.class);
-    }
+
 }

@@ -40,6 +40,7 @@ public class PetDeserializer implements JsonDeserializer<PetResponse> {
         for (int i = 0; i < petResponseData.size(); i++) {
             JsonObject petResponseDataObject = petResponseData.get(i).getAsJsonObject();
 
+            String idPicture          = petResponseDataObject.get(JsonKeys.USER_ID).getAsString();
             JsonObject userJsonObject = petResponseDataObject.getAsJsonObject(JsonKeys.USER);
             String id                 = userJsonObject.get(JsonKeys.USER_ID).getAsString();
             String fullName           = userJsonObject.get(JsonKeys.USER_FULLNAME).getAsString();
@@ -53,6 +54,7 @@ public class PetDeserializer implements JsonDeserializer<PetResponse> {
             int likes                  = likesJsonObject.get(JsonKeys.MEDIA_LIKES_COUNT).getAsInt();
 
             Pet currentPet  = new Pet();
+            currentPet.setIdPicture(idPicture);
             currentPet.setId(id);
             currentPet.setName(fullName);
             currentPet.setUrlPicture(urlPicture);

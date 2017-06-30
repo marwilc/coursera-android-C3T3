@@ -13,18 +13,23 @@ public class Pet implements Parcelable{
     private int likes = 0;
     private String urlPicture;
     private String urlProfilePicture;
+    private String idPicture;
 
-    public Pet(String name, int likes, String urlPicture, String urlProfilePicture) {
-        this.name = name;
-        this.likes = likes;
-        this.urlPicture = urlPicture;
-        this.urlProfilePicture = urlProfilePicture;
+    public Pet(String name, int likes, String urlPicture, String urlProfilePicture, String idPicture) {
+        this.name               = name;
+        this.likes              = likes;
+        this.urlPicture         = urlPicture;
+        this.urlProfilePicture  = urlProfilePicture;
+        this.idPicture          = idPicture;
     }
 
     protected Pet(Parcel in) {
-        name = in.readString();
-        likes = in.readInt();
-        urlPicture = in.readString();
+        name               = in.readString();
+        likes              = in.readInt();
+        urlPicture         = in.readString();
+        idPicture          = in.readString();
+        id                 = in.readString();
+        urlProfilePicture  = in.readString();
     }
 
     public static final Parcelable.Creator<Pet> CREATOR = new Parcelable.Creator<Pet>() {
@@ -86,6 +91,8 @@ public class Pet implements Parcelable{
         dest.writeInt(likes);
         dest.writeString(urlPicture);
         dest.writeString(urlProfilePicture);
+        dest.writeString(idPicture);
+        dest.writeString(id);
     }
 
 
@@ -99,4 +106,11 @@ public class Pet implements Parcelable{
 
 
 
+    public void setIdPicture(String idPicture) {
+        this.idPicture = idPicture;
+    }
+
+    public String getIdPicture() {
+        return idPicture;
+    }
 }

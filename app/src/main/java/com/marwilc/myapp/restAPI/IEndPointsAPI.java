@@ -3,6 +3,7 @@ package com.marwilc.myapp.restAPI;
 import com.marwilc.myapp.modelData.Pet;
 import com.marwilc.myapp.restAPI.adapter.RestApiAdapter;
 import com.marwilc.myapp.restAPI.model.PetResponse;
+import com.marwilc.myapp.restAPI.model.ResponseLike;
 import com.marwilc.myapp.restAPI.model.ResponseUser;
 
 import retrofit2.Call;
@@ -45,5 +46,9 @@ public interface IEndPointsAPI {
     @POST(RestConstantsAPI.KEY_POST_USER_INSTAGRAM)
     Call<ResponseUser> registerUser(@Field("id_device") String idDevice, @Field("id_user")String idUser);
 
-
+    //https://api.instagram.com/v1/media/1543378474171951561_5032752476/likes
+    @FormUrlEncoded
+    @POST(RestConstantsAPI.KEY_USER_SEND_LIKE)
+    Call<ResponseLike> registerLike(@Field("access_token") String accessToken,
+                                    @Path("media-id") String idPicture);
 }
