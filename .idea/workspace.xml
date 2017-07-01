@@ -11,16 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a71e9eb8-ac4e-4bc7-a38a-147eff7dd360" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationIDTokenService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/notifications/NotificationIDTokenService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/notifications/NotificationService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/adapters/PetAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/adapters/PetAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBase.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBaseConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBaseConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/adapter/InstagramUserAdapterDB.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/adapter/InstagramUserAdapterDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/IEndPointsAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/IEndPointsAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/RestConstantsAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/RestConstantsAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/view/AccountActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/view/AccountActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
     </list>
     <ignored path="MyApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +52,7 @@
       <file leaf-file-name="IEndPointsAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/IEndPointsAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
+            <state relative-caret-position="239">
               <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding />
             </state>
@@ -74,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PetAdapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PetAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/adapters/PetAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1305">
-              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="144" column="60" selection-start-line="144" selection-start-column="60" selection-end-line="144" selection-end-column="60" />
               <folding>
                 <element signature="e#2347#2578#0" expanded="true" />
                 <element signature="e#2577#2578#0" expanded="true" />
@@ -99,18 +94,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseUser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/model/ResponseUser.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="NotificationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationService.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/notifications/NotificationService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="373">
               <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
@@ -149,7 +147,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataBaseConstants.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataBaseConstants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBaseConstants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -2183,7 +2181,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationIDTokenService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/model/ResponseUser.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/presenter/ProfileFragmentPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/view/MainActivity.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/modelData/Pet.java" />
@@ -2206,6 +2203,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/adapter/InstagramUserAdapterDB.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/db/DataBaseConstants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2510,7 +2508,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Notifications" />
+              <option name="myItemId" value="notifications" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2566,6 +2564,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2960,7 +2962,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1360" height="768" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32392272" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -3147,7 +3149,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationIDTokenService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/notifications/NotificationIDTokenService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
@@ -3198,17 +3200,6 @@
             <js_state />
           </second_editor>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/presenter/ProfileFragmentPresenter.java">
@@ -3398,32 +3389,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/IEndPointsAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/Notifications/NotificationService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/notifications/NotificationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
           <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/adapters/PetAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding>
-            <element signature="e#2347#2578#0" expanded="true" />
-            <element signature="e#2577#2578#0" expanded="true" />
-            <element signature="e#5452#5453#0" expanded="true" />
-            <element signature="e#5486#5487#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3464,6 +3434,38 @@
         <state relative-caret-position="150">
           <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/restAPI/IEndPointsAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marwilc/myapp/adapters/PetAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="144" column="60" selection-start-line="144" selection-start-column="60" selection-end-line="144" selection-end-column="60" />
+          <folding>
+            <element signature="e#2347#2578#0" expanded="true" />
+            <element signature="e#2577#2578#0" expanded="true" />
+            <element signature="e#5452#5453#0" expanded="true" />
+            <element signature="e#5486#5487#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

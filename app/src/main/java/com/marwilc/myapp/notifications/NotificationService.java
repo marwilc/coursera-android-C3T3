@@ -1,4 +1,4 @@
-package com.marwilc.myapp.Notifications;
+package com.marwilc.myapp.notifications;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
