@@ -93,7 +93,8 @@ public class AccountActivity extends AppCompatActivity {
     private void seveUserInstagramToDB(String id) {
         //String idDevice = FirebaseInstanceId.getInstance().getToken(); // obtiene el id del dispositivo actual
         InstagramUserAdapterDB userAdapterDB = new InstagramUserAdapterDB(getBaseContext());
-        userAdapterDB.insertUserToTableInstagram(id); // inserta ambos id en la BD
+        //userAdapterDB.insertUserToTableInstagram(id); // inserta ambos id en la BD
+        userAdapterDB.updateUserToTableInstagram(id);
         //sendTokenRegister(idDevice, idUser);
     }
     // termina el registro de usuarion

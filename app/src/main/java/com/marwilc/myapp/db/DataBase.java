@@ -172,6 +172,14 @@ public class DataBase extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateUserIntagram(ContentValues contentValues, String idOld) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(DataBaseConstants.TABLE_USER_INSTAGRAM, contentValues ,
+                DataBaseConstants.TABLE_USER_INSTAGRAM_ID_USER + " = " + idOld, null);
+        db.close();
+
+    }
+
 
     public ArrayList<ResponseUser> getUserIdById(String idUser) {
 
@@ -190,4 +198,6 @@ public class DataBase extends SQLiteOpenHelper {
         db.close();
         return userArrayList;
     }
+
+
 }

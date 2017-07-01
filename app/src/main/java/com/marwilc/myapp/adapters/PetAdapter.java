@@ -74,9 +74,35 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             public void onClick(View v) {
                 tapLike(pet);
                 registerLikeToFireBase(pet);
+                sendNotification(pet);
 
             }
         });
+
+    }
+
+    private void sendNotification(Pet pet) {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        IEndPointsAPI iEndPointsAPI = restApiAdapter.setConnectionRestAPIServer();
+        Call<ResponseUser>  responseUserCall = iEndPointsAPI.sendNotificationLike(pet.getId());
+
+        responseUserCall.enqueue(new Callback<ResponseUser>() {
+            @Override
+            public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
+                ResponseUser responseUser = response.body();
+
+                Log.d("ID", responseUser.getId());
+                Log.d("ID_DEVICE", responseUser.getIdDevice());
+                Log.d("ID_USER", responseUser.getIdUser());
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUser> call, Throwable t) {
+
+            }
+        });
+
 
     }
 
@@ -84,7 +110,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
         String idDevice = FirebaseInstanceId.getInstance().getToken();
         RestApiAdapter restApiAdapter = new RestApiAdapter();
         IEndPointsAPI iEndPointsAPI = restApiAdapter.setConnectionRestAPIServer();
-        final Call<ResponseUserLike> responseUserLikeCall = iEndPointsAPI.registerUserLike(idDevice, pet.getId(), pet.getIdPicture());
+        Call<ResponseUserLike> responseUserLikeCall = iEndPointsAPI.registerUserLike(idDevice, pet.getId(), pet.getIdPicture());
 
         responseUserLikeCall.enqueue(new Callback<ResponseUserLike>() {
             @Override

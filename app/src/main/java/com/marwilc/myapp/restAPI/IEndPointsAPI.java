@@ -59,4 +59,8 @@ public interface IEndPointsAPI {
     Call<ResponseUserLike> registerUserLike(@Field("id_device") String idDevice,
                                             @Field("id_user")String id,
                                             @Field("id_picture")String idPicture);
+
+    //https://fathomless-ravine-76673.herokuapp.com/user-instagram/search?q=
+    @GET(RestConstantsAPI.URL_QUERY_USER_INSTAGRAM_BY_ID)
+    Call<ResponseUser> sendNotificationLike(@Query("q") String id);
 }

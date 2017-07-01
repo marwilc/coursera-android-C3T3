@@ -49,4 +49,20 @@ public class InstagramUserAdapterDB {
         DataBase db = new DataBase(context);
         return db.getAllAccountsRegisterOnThisDevice();
     }
+
+    public void updateUserToTableInstagram(String id) {
+        DataBase db = new DataBase(context);
+
+        ArrayList<ResponseUser> userArrayList = getData();
+
+        if (!userArrayList.isEmpty()){
+            String idOld = userArrayList.get(0).getIdUser();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DataBaseConstants.TABLE_USER_INSTAGRAM_ID_USER, id);
+            db.updateUserIntagram(contentValues,idOld);
+        }else{
+            insertUserToTableInstagram(id);
+        }
+
+    }
 }

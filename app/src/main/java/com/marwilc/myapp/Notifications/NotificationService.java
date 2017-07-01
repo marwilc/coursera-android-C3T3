@@ -63,7 +63,7 @@ public class NotificationService extends FirebaseMessagingService {
 
         NotificationCompat.Builder notificationCompat =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.ic_star)
+                        .setSmallIcon(R.drawable.ic_stat_pet_notification)
                         .setContentTitle(from)
                         .setContentText(body)
                         .setSound(sound2)

@@ -24,6 +24,7 @@ public final class RestConstantsAPI {
     public static final String KEY_POST_ID_TOKEN = "token-device/";
     public static final String KEY_POST_USER_INSTAGRAM = "user-instagram/";
 
+    public static final String URL_QUERY_USER_INSTAGRAM_BY_ID = KEY_POST_USER_INSTAGRAM + "search";
     // users/search
     public static final String KEY_GET_USER_BY_USERNAME = "users/search";
 
