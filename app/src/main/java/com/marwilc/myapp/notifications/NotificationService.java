@@ -1,19 +1,23 @@
 package com.marwilc.myapp.notifications;
 
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.marwilc.myapp.R;
 import com.marwilc.myapp.view.MainActivity;
+
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.app.NotificationCompat.WearableExtender;
+import android.view.Gravity;
 
 /**
  * Created by marwilc on 26/06/17.
@@ -25,6 +29,8 @@ import com.marwilc.myapp.view.MainActivity;
 public class NotificationService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
+    private static final int NOTIFICATION_ID = 001;
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         //super.onMessageReceived(remoteMessage);
@@ -52,25 +58,47 @@ public class NotificationService extends FirebaseMessagingService {
         // message, here is where that should be initiated. See sendNotification method below.
     }
 
-    public void launchNotification(String from, String body) {
-        Intent i = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
+    public void launchNotification(RemoteMessage remoteMessage) {
+
+
+        Intent i = new Intent();
+        i.setAction(MainActivity.PAGE_PROFILE);
+       // i.putExtra(MainActivity.PAGE_PROFILE, 1);  // envio de la configuracion del viewPager
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        Uri sound2 = RingtoneManager.getDefaultUri(AudioAttributes.USAGE_NOTIFICATION_RINGTONE);
 
+        // configurar la accion del wear
+        NotificationCompat.Action action =
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_account_circle_white,
+                        getString(R.string.text_action_go_home), pendingIntent)
+                        .build();
+
+        // soporte para wear creando la notificacion
+        NotificationCompat.WearableExtender wearableExtender =
+                new NotificationCompat.WearableExtender()
+                        .setHintHideIcon(true)
+                        .setBackground(BitmapFactory.decodeResource(getResources(),
+                                R.drawable.background_image))
+                        .setGravity(Gravity.CENTER_VERTICAL)
+                        ;
 
         NotificationCompat.Builder notificationCompat =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_stat_pet_notification)
-                        .setContentTitle(from)
-                        .setContentText(body)
-                        .setSound(sound2)
+                        .setContentTitle("notification")
+                        .setContentText(remoteMessage.getNotification().getBody())
+                        .setSound(sound)
                         .setContentIntent(pendingIntent)
-                        .setAutoCancel(true);
+                        .setAutoCancel(true)
+                        .extend(wearableExtender.addAction(action));
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notificationCompat.build());
+
+        // soporte para androidWear
+        NotificationManagerCompat notificationManager =
+                NotificationManagerCompat.from(this);
+        notificationManager.notify(NOTIFICATION_ID, notificationCompat.build());
+        // fin del soporte
     }
 }

@@ -39,17 +39,33 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private RecyclerViewFragment rvfPets;
     private ProfileFragment pfProfilePet;
+    public static final String PAGE_PROFILE = "page_profile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        int currentPage;
+        if(savedInstanceState == null){
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                currentPage = 0;
+            } else {
+                currentPage = extras.getInt(PAGE_PROFILE);
+            }
+        } else {
+            currentPage = (int) savedInstanceState.getSerializable(PAGE_PROFILE);
+        }
+
+
+
         toolbar     = (Toolbar) findViewById(R.id.myActionBar);
         tabLayout   = (TabLayout) findViewById(R.id.tabLayout);
         viewPager   = (ViewPager) findViewById(R.id.viewPager);
 
         setupViewPager();
+        showPage(currentPage);
 
         if (toolbar != null)
             setSupportActionBar(toolbar);
@@ -164,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_pets_2);
     }
 
-
     public void toFavoritesActivity() {
 
         Intent intent = new Intent(this, FavoritesActivity.class);
@@ -172,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void showPage(int page) {
+        viewPager.setCurrentItem(page);
+    }
 }
 
 
