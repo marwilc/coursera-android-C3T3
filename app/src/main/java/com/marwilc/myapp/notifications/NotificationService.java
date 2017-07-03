@@ -90,13 +90,13 @@ public class NotificationService extends FirebaseMessagingService {
 
         // configurar la accion del wear
         NotificationCompat.Action.Builder actionTapFollow =
-                new NotificationCompat.Action.Builder(R.drawable.ic_full_account_circle_white,
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_plus_one_white_48dp,
                         getString(R.string.text_action_tap_user), pendingIntentFollow)
                         ;
 
         // configurar la accion del wear
         NotificationCompat.Action.Builder actionViewUser =
-                new NotificationCompat.Action.Builder(R.drawable.ic_full_account_circle_white,
+                new NotificationCompat.Action.Builder(R.drawable.ic_full_satisfied_white_48dp,
                         getString(R.string.text_action_view_user), pendingIntentViewUser)
                         ;
 
