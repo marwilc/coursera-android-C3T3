@@ -23,6 +23,8 @@
     </string>
     <string name="notifications_menu">Receive Notifications</string>
     <string name="text_action_go_home">go home</string>
+    <string name="text_action_tap_user">follow/unfollow user</string>
+    <string name="text_action_view_user">view user</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

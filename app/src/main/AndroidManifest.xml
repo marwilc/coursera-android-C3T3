@@ -64,6 +64,14 @@
             </intent-filter>
         </service>
 
+        <receiver android:name=".notifications.SettingActionNotification">
+            <intent-filter>
+                <action android:name="page_profile"/>
+            </intent-filter>
+        </receiver>
+
+
+
     </application>
 
 </manifest>

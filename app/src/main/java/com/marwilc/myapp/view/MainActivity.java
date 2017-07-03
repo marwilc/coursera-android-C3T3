@@ -40,23 +40,18 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewFragment rvfPets;
     private ProfileFragment pfProfilePet;
     public static final String PAGE_PROFILE = "page_profile";
+    public static final String PAGE_DOS = "dos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int currentPage;
-        if(savedInstanceState == null){
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                currentPage = 0;
-            } else {
-                currentPage = extras.getInt(PAGE_PROFILE);
-            }
-        } else {
-            currentPage = (int) savedInstanceState.getSerializable(PAGE_PROFILE);
-        }
+        Intent intent = getIntent();
+        String currentPage = "uno";
+        Bundle extras = intent.getExtras();
+        if(extras != null)
+            currentPage = extras.getString(PAGE_PROFILE);
 
 
 
@@ -65,13 +60,18 @@ public class MainActivity extends AppCompatActivity {
         viewPager   = (ViewPager) findViewById(R.id.viewPager);
 
         setupViewPager();
-        showPage(currentPage);
+        //Log.d("item Tab", currentPage);
+//        showPage(currentPage);
 
         if (toolbar != null)
             setSupportActionBar(toolbar);
 
      }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
 
     // crear menu e inflar
     @Override
@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
 
                 ResponseUser responseUser = response.body();
-                Log.d("ID", responseUser.getId());
-                Log.d("ID_DEVICE", responseUser.getIdDevice());
-                Log.d("ID_USER", responseUser.getIdUser());
+               // Log.d("ID", responseUser.getId());
+                //Log.d("ID_DEVICE", responseUser.getIdDevice());
+                //Log.d("ID_USER", responseUser.getIdUser());
             }
 
             @Override
@@ -187,8 +187,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void showPage(int page) {
-        viewPager.setCurrentItem(page);
+    public void showPage(String page) {
+        if (page.equals(PAGE_DOS))
+            viewPager.setCurrentItem(1);
     }
 }
 

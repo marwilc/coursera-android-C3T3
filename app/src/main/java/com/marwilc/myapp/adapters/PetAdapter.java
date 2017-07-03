@@ -91,9 +91,9 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
                 ResponseUser responseUser = response.body();
 
-                Log.d("ID", responseUser.getId());
-                Log.d("ID_DEVICE", responseUser.getIdDevice());
-                Log.d("ID_USER", responseUser.getIdUser());
+              //  Log.d("ID", responseUser.getId());
+                //Log.d("ID_DEVICE", responseUser.getIdDevice());
+                //Log.d("ID_USER", responseUser.getIdUser());
 
             }
 
@@ -117,10 +117,10 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             public void onResponse(Call<ResponseUserLike> call, Response<ResponseUserLike> response) {
                 ResponseUserLike responseUserLike = response.body();
 
-                Log.d("id", responseUserLike.getId());
-                Log.d("id_device", responseUserLike.getId_device());
-                Log.d("id_user", responseUserLike.getId_user());
-                Log.d("id_picture", responseUserLike.getId_picture());
+               // Log.d("id", responseUserLike.getId());
+                //Log.d("id_device", responseUserLike.getId_device());
+               // Log.d("id_user", responseUserLike.getId_user());
+               // Log.d("id_picture", responseUserLike.getId_picture());
 
             }
 
@@ -143,8 +143,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder>{
             public void onResponse(Call<ResponseLike> call, Response<ResponseLike> response) {
 
                 ResponseLike responseLike = response.body();
-                Log.d("DATA", responseLike.getData());
-                Log.d("CODE", responseLike.getCode());
+                //Log.d("DATA", responseLike.getData());
+                //Log.d("CODE", responseLike.getCode());
             }
 
             @Override
