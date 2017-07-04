@@ -1,10 +1,15 @@
 package com.marwilc.myapp.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +59,16 @@ public class AccountActivity extends AppCompatActivity {
 
             }
         });
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // implementacion de transiciones slide
+            Slide slide = new Slide();
+            slide.setDuration(1000);
+            this.getWindow().setEnterTransition(slide);
+            this.getWindow().setReturnTransition(new Fade());
+        }
+
+
     }
 
     private void getDataUser(String userName) {

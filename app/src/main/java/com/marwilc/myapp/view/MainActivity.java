@@ -1,17 +1,25 @@
 package com.marwilc.myapp.view;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.marwilc.myapp.R;
@@ -34,18 +42,20 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
 
-    private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private RecyclerViewFragment rvfPets;
-    private ProfileFragment pfProfilePet;
     public static final String PAGE_PROFILE = "page_profile";
     public static final String PAGE_DOS = "dos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS); // activa las transiciones
+        }
         setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
+
 
         Intent intent = getIntent();
         String currentPage = "uno";
@@ -54,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
             currentPage = extras.getString(PAGE_PROFILE);
 
 
-
-        toolbar     = (Toolbar) findViewById(R.id.myActionBar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.myActionBar);
         tabLayout   = (TabLayout) findViewById(R.id.tabLayout);
         viewPager   = (ViewPager) findViewById(R.id.viewPager);
 
@@ -95,7 +104,20 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mAbout:
                 // to activity about
                 Intent intent2 = new Intent(this, AboutActivity.class);
-                startActivity(intent2);
+                // genera compatibilidad de aplicaciones en otras versiones de android
+
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                    // implementacion de transiciones explode
+                    Explode explode = new Explode();
+                    explode.setDuration(1000);
+                    this.getWindow().setExitTransition(explode);
+                    this.startActivity(intent2,
+                            ActivityOptionsCompat.makeSceneTransitionAnimation(this, viewPager,"").toBundle());
+
+                } else
+                    startActivity(intent2);
+
+
                 break;
 
             case R.id.mFavorites:
@@ -105,8 +127,21 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.mAccount:
                 // to activity account settings
+
                 Intent intent3 = new Intent(this, AccountActivity.class);
-                startActivity(intent3);
+
+                // genera compatibilidad de aplicaciones en otras versiones de android
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                    // implementacion de transiciones explode
+                    Explode explode = new Explode();
+                    explode.setDuration(1000);
+                    this.getWindow().setExitTransition(explode);
+                    this.startActivity(intent3,
+                            ActivityOptionsCompat.makeSceneTransitionAnimation(this, viewPager,"").toBundle());
+
+                } else
+                    startActivity(intent3);
+
                 break;
 
             case R.id.mNotifications:
@@ -145,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         responseUserCall.enqueue(new Callback<ResponseUser>() {
 
             @Override
-            public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
+            public void onResponse(@NonNull Call<ResponseUser> call, @NonNull Response<ResponseUser> response) {
 
                 ResponseUser responseUser = response.body();
                // Log.d("ID", responseUser.getId());
@@ -154,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseUser> call, Throwable t) {
+            public void onFailure(@NonNull Call<ResponseUser> call, @NonNull Throwable t) {
 
             }
         });
@@ -163,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fragment> aggFragments(){
         ArrayList<Fragment> fragmets = new ArrayList<>();
 
-        rvfPets         = new RecyclerViewFragment();
-        pfProfilePet    = new ProfileFragment();
+        RecyclerViewFragment rvfPets = new RecyclerViewFragment();
+        ProfileFragment pfProfilePet = new ProfileFragment();
         fragmets.add(rvfPets);
         fragmets.add(pfProfilePet);
 
