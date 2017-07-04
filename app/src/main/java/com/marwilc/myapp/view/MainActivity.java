@@ -98,7 +98,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mContact:
                 // to activity contact
                 Intent intent1 = new Intent(this, ContactActivity.class);
-                startActivity(intent1);
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                    // implementacion de transiciones explode
+                    Explode explode = new Explode();
+                    explode.setDuration(1000);
+                    this.getWindow().setExitTransition(explode);
+                    this.startActivity(intent1,
+                            ActivityOptionsCompat.makeSceneTransitionAnimation(this, viewPager,"").toBundle());
+
+                } else
+                    startActivity(intent1);
                 break;
 
             case R.id.mAbout:
